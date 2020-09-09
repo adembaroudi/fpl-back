@@ -5,8 +5,9 @@ const login = require('./Api/login');
 const register = require('./Api/register');
 const sujet =require('./Api/sujet');
 const YesOrNo = require('./Api/YesOrNo');
-const votemax = require('./votemax')
+const votemax = require('./votemax');
 const cors = require('cors');
+require ('./passport');
 var http = require('http');
 var path = require('path');
 const app = express();

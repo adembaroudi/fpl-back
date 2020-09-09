@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken")
 const User = require('./../Models/UserSchema');
 const router = express.Router();
 router.post('/login', async(req,res)=>{
+  console.log(res);
     const user = await User.findOne({email: req.body.email});
     const ValidEmailUser = user ? user.email : undefined;
     if (ValidEmailUser) {
