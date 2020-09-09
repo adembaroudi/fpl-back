@@ -24,7 +24,7 @@ router.post(
     async (req, res) => {
       const sujets = await sujet.find();
   
-      res.send(sujtes);
+      res.send(sujets);
     }
   );
   router.get(
@@ -55,7 +55,7 @@ router.post(
           .status(400)
           .json({ message: " title or description are required" });
   
-      await Sondage.findByIdAndUpdate(req.params.id, {
+      await sujet.findByIdAndUpdate(req.params.id, {
         titre: titre,
         description: description,
       });
