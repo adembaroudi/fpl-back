@@ -1,21 +1,21 @@
 
 const passport  = require ('passport');
-const sujet = require('./../Models/sujetSchema');
+const Sujet = require('./../Models/sujetSchema');
 const User = require('./../Models/UserSchema');
 var express = require("express");
 const router = express.Router();
 router.post(
-    "/add",
+    "/add/:id",
     passport.authenticate("bearer", { session: false }),
     async (req, res) => {
       const user = await User.findById(req.user.user);
-      const Sujet = new sujet(req.body);
+      const sujet = new Sujet(req.body);
   
-      await Sujet.save();
+      await sujet.save();
   
-      await Sujet.findByIdAndUpdate(Sujet._id, { user: user._id });
+      await Sujet.findByIdAndUpdate(sujet._id, { user: user._id });
   
-      res.send(Sujet);
+      res.send(sujet);
     }
   );
   router.get(
