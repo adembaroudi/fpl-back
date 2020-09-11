@@ -5,7 +5,7 @@ const User = require('./../Models/UserSchema');
 var express = require("express");
 const router = express.Router();
 router.post(
-    "/add",
+    "/add/:id",
     passport.authenticate("bearer", { session: false }),
     async (req, res) => {
       const user = await User.findById(req.user.user);
